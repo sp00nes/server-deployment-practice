@@ -4,6 +4,7 @@ const express = require('express');
 const logger = require('./middleware/logger.js');
 const notFound = require('./handlers/404.js');
 const errorHandler = require('./handlers/500.js');
+const PORT = process.env.PORT || 3001;
 
 // creates an express singleton
 const app = express();
@@ -25,9 +26,10 @@ app.get('/bad', (req, res, next) => {
 app.use('*', notFound);
 app.use(errorHandler);
 
+
 //crate callback that gets called in index
 const start = () => {
-  app.listen(3001, () => console.log('server running on port 3001'));
+  app.listen(PORT, () => console.log('server running on port 3001'));
 };
 
 module.exports = {start, app};
