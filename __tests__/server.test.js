@@ -20,7 +20,6 @@ describe('API Server', () => {
 
   test('handles error', async () => {
     const response = await mockRequest.get('/bad');
-    console.log(response);
     expect(response.status).toEqual(500);
   });
 });
